@@ -1,0 +1,8 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Java project
+${licensePrefix}Made by NQM ${licensePrefix}
+<#if licenseLast??>
+${licenseLast}
+</#if>
