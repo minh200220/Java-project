@@ -3,24 +3,19 @@
 package com.mycompany.java;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class main {
-    public static void main(String[] args) {
-//        Student one = new Student("Minh", "B1809708", 20, 50f);
-//        one.eat("Bread");
-//        
-        Student[] lst = new Student[1];
+    public static List<Student> list = new ArrayList<Student>();
+    public static void main(String[] args) {  
         while (true) {
             printMenu();
-            option(lst);
+            option();
         }
     }
     
-    public static Student[] addStudent(Student arr[]) 
-    {   
+    public static List<Student> addStudent() {   
         // Create a new student
         Scanner sc = new Scanner(System.in);
         System.out.println("Input new student's name: ");
@@ -33,22 +28,36 @@ public class main {
         float gpa = sc.nextFloat();
         
         Student x = new Student(name, id, age, gpa);
+        list.add(x);
         
-        // create a new ArrayList 
-        List<Student> arrlist = new ArrayList<>( Arrays.asList(arr)); 
-  
-        // Add the new element 
-        arrlist.add(x); 
-  
-        // Convert the Arraylist to array 
-        arr = arrlist.toArray(arr); 
-  
-        // return the array 
-        return arr; 
+        return list;
     } 
     
+    private static void showStudent() {
+        System.out.println("Showing the students...");
+//        list.forEach((a) -> {
+//            a.printInfo();
+//        });
+    }
+    
+    private static void editStudent() {
+        System.out.println("Editing students...");
+    }
+    
+    private static void deleteStudent() {
+        System.out.println("Deleting students...");
+    }
+    
+    private static void sortByGpa() {
+        System.out.println("Sorting students by gpa...");
+    }
+    
+    private static void sortByName() {
+        System.out.println("Sorting students by name...");
+    }
+    
     private static void printMenu() {
-        System.out.println("/************************************/");
+        System.out.println("/============ STUDENT MANAGER ============/");
         System.out.println("1. Add student.");
         System.out.println("2. Edit student by id.");
         System.out.println("3. Delete student by id.");
@@ -58,31 +67,32 @@ public class main {
         System.out.println("0. Exit.");
     }
     
-    private static void option(Student[] lst) {
+    private static void option() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Your choice: ");
+        System.out.println("Your choice [0-6]: ");
         int value = sc.nextInt();
         switch(value) {
             case 1:
-                addStudent(lst);
+                list = addStudent();
                 break;
             case 2:
-//                editStudent();
+                editStudent();
                 break;
             case 3:
-//                deleteStudent();
+                deleteStudent();
                 break;
             case 4:
-//                sortByGpa();
+                sortByGpa();
                 break;
             case 5:
-//                sortByName();
+                sortByName();
                 break;
             case 6:
-//                showStudent();
+                showStudent();
                 break;
             case 0:
-//                exit();
+            default:
+                System.exit(0); 
                 break;    
         }
     }
