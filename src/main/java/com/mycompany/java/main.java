@@ -15,7 +15,7 @@ public class main {
         }
     }
     
-    public static List<Student> addStudent() {   
+    public static void addStudent() {   
         // Create a new student
         Scanner sc = new Scanner(System.in);
         System.out.println("Input new student's name: ");
@@ -29,42 +29,35 @@ public class main {
         
         Student x = new Student(name, id, age, gpa);
         list.add(x);
-        
-        return list;
     } 
     
-    private static void showStudent() {
+    public static void showStudent() {
         System.out.println("Showing the students...");
-//        list.forEach((a) -> {
-//            a.printInfo();
-//        });
+        list.forEach((a) -> {
+            a.printInfo();
+        });
     }
     
-    private static void editStudent() {
+    public static void editStudent() {
         System.out.println("Editing students...");
     }
     
-    private static void deleteStudent() {
+    public static void deleteStudent() {
         System.out.println("Deleting students...");
     }
     
-    private static void sortByGpa() {
+    public static void sortByGpa() {
         System.out.println("Sorting students by gpa...");
     }
     
-    private static void sortByName() {
+    public static void sortByName() {
         System.out.println("Sorting students by name...");
     }
     
     private static void printMenu() {
-        System.out.println("/============ STUDENT MANAGER ============/");
-        System.out.println("1. Add student.");
-        System.out.println("2. Edit student by id.");
-        System.out.println("3. Delete student by id.");
-        System.out.println("4. Sort student by gpa.");
-        System.out.println("5. Sort student by name.");
-        System.out.println("6. Show student.");
-        System.out.println("0. Exit.");
+        System.out.println("============ STUDENT MANAGER ============");
+        System.out.println("1. Add student\n2. Edit student by id\n3. Delete student by id");
+        System.out.println("4. Sort student by gpa\n5. Sort student by name\n6. Show student.\n0. Exit.");
     }
     
     private static void option() {
@@ -73,7 +66,7 @@ public class main {
         int value = sc.nextInt();
         switch(value) {
             case 1:
-                list = addStudent();
+                addStudent();
                 break;
             case 2:
                 editStudent();
