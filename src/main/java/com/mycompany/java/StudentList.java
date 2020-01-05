@@ -45,8 +45,10 @@ public class StudentList {
         String id = sc.nextLine();
         
         for (Student e : list) {
-            if (id.equals(e.id)) 
-                list.remove(e);
+            if (id.equals(e.id)) {
+                int pos = list.indexOf(e);
+                list.remove(pos);
+            }
         }
     }
     
