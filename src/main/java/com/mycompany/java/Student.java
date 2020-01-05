@@ -29,7 +29,5 @@ public class Student extends Person{
     public void printInfo() {
         System.out.println(this.name + " " + this.id);
         System.out.println(this.age + " years old. GPA: " + this.gpa);
-    }
-    
-    
+    } 
 }
