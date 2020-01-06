@@ -27,7 +27,10 @@ public class Student extends Person{
     // overrideMethod
     @Override
     public void printInfo() {
-        System.out.println(this.name + " " + this.id);
-        System.out.println(this.age + " years old. GPA: " + this.gpa);
+        System.out.println("=====================");
+        System.out.println("Name: \t" + this.name);
+        System.out.println("Id:   \t" + this.id);
+        System.out.println("Age:  \t" + this.age);
+        System.out.println("GPA:  \t" + this.gpa);
     } 
 }
