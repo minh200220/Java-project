@@ -30,16 +30,16 @@ public class StudentList {
         String id = sc.nextLine();
 
         for (Student e : list) {
-            if (id.equals(e.id)) {
+            if (id.equals(e.getId())) {
                 System.out.println("Input new name: ");
-                e.name = sc.nextLine();
+                e.setName(sc.nextLine());
                 System.out.println("Input new age: ");
-                e.age = sc.nextInt();
+                e.setAge(sc.nextInt());
                 System.out.println("Input new gpa: ");
-                e.gpa = sc.nextFloat();
+                e.setGpa(sc.nextFloat());
             }
         }
-        System.out.println("Edited " + id);
+        System.out.println("------Edited------");
     }
     
     public static void deleteStudent() {
@@ -47,7 +47,7 @@ public class StudentList {
         String id = sc.nextLine();
         
         for (Student e : list) {
-            if (id.equals(e.id)) {
+            if (id.equals(e.getId())) {
                 int pos = list.indexOf(e);
                 list.remove(pos);
             }
@@ -56,15 +56,13 @@ public class StudentList {
     
     public static void sortByGpa() {
         System.out.println("Sorting students by gpa...");
-        Collections.sort(list, (a,b) -> {
-        	return (float) (a.gpa() - b.gpa());
-        });
+        Collections.sort(list, (Student o1, Student o2) -> Float.compare(o1.getGpa(), o2.getGpa()));
     }
     
     public static void sortByName() {
         System.out.println("Sorting students by name...");
         Comparator<Student> compareByName = (Student o1, Student o2) ->
-        o1.name().compareTo( o2.name() );
+        o1.getName().compareTo( o2.getName() );
         Collections.sort(list, compareByName);
     }
     
