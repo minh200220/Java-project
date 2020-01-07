@@ -2,6 +2,8 @@ package com.mycompany.java;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class StudentList {
@@ -54,10 +56,16 @@ public class StudentList {
     
     public static void sortByGpa() {
         System.out.println("Sorting students by gpa...");
+        Collections.sort(list, (a,b) -> {
+        	return (float) (a.gpa() - b.gpa());
+        });
     }
     
     public static void sortByName() {
         System.out.println("Sorting students by name...");
+        Comparator<Student> compareByName = (Student o1, Student o2) ->
+        o1.name().compareTo( o2.name() );
+        Collections.sort(list, compareByName);
     }
     
     public static void showStudent() {
