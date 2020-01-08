@@ -52,6 +52,8 @@ public class StudentList {
                 list.remove(pos);
             }
         }
+        
+        System.out.println("Deleted");
     }
     
     public static void sortByGpa() {
