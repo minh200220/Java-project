@@ -51,11 +51,15 @@ public class PhanSo {
   }
 
   public float giaTri() {
-    return (this.tu / this.mau);
+    float a = tu;
+    float b = mau;
+    return (a / b);
   }
 
   public boolean lonHon(PhanSo a) {
-    return this.giaTri() > a.giaTri();
+    if (this.giaTri() > a.giaTri())
+      return true;
+    return false;
   }
 
   // Operation with fraction

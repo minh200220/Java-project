@@ -1,17 +1,9 @@
-
 package learn.thuchanh2;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class SDPhanSo {
-    public static void main(String[] args) {
-        nhap();
-        System.out.println(tong());
-    }
-    
-    public static List<PhanSo> list = new ArrayList<PhanSo> ();
+    public static List<PhanSo> lst = new ArrayList<PhanSo> ();
 
     public static void nhap() {
         Scanner sc = new Scanner(System.in);
@@ -20,26 +12,45 @@ public class SDPhanSo {
         for (int i = 0; i<n; i++) {
             PhanSo a = new PhanSo();
             a.nhap();
-            list.add(a);
+            lst.add(a);
         }
     }
 
-    public static float tong() {
-        float sum = 0;
-        for (PhanSo x : list) {
+    public static float sum() {
+        float s = 0;
+        for (PhanSo x : lst) {
             System.out.println(x.giaTri());
-            sum += x.giaTri();
+            s += x.giaTri();
         }
-        return sum;
+        return s;
     }
 
     public static PhanSo max() {
         float maxVal = 0;
         PhanSo maxFrac = new PhanSo();
-        for (PhanSo x : list) {
-            if (x.giaTri() > maxVal)
+        for (PhanSo x : lst) {
+            if (x.giaTri() > maxVal) {
+                maxVal = x.giaTri();
                 maxFrac = x;
+            }
         }
         return maxFrac;
+    }
+
+    public static void showList() {
+        for (PhanSo x: lst) 
+            x.hienThi();
+        }
+
+    public static void sortList() {
+        Collections.sort(lst, (PhanSo o1, PhanSo o2) -> Float.compare(o1.giaTri(), o2.giaTri()));
+        System.out.println("Sorting...");
+    }
+
+    public static void main(String[] args) {
+        nhap();
+        showList();
+        sortList();
+        showList();
     }
 }
